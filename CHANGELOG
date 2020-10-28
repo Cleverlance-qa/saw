@@ -1,0 +1,27 @@
+13.5.2020
+Verze 1.9
+Přidány dvě nové metody pro práci s DB - runQueryFull a runUpdateQuery
+V DesktopHelperu přibyla možnost zavolat loginDialogByWiniumInject bez nutnosti zadat URL
+Do RcGenerator přibyla metoda getGenderFromRC pro určení pohlaví podle rodného čísla
+
+25.10.2020
+Verze 2.0
+parseRegex
+parseXPath
+getTextFromFile
+runCurlCommand
+downloadFile
+generateRandomChar
+setDefaultElementRepository
+checkCheckboxState
+
+sikuli
+sendKeysHideOutput
+waitForTextOnScreen
+
+grafana
+postToTelegrafManually
+
+
+db
+closeConnection
