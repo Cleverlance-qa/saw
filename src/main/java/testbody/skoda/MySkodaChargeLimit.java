@@ -11,7 +11,7 @@ public class MySkodaChargeLimit extends MethodHelperMobile {
     }
 
     public boolean testRun(String carModel) {
-        /*MySkodaGeneralHelper generalHelper = new MySkodaGeneralHelper(dataReader);
+        MySkodaGeneralHelper generalHelper = new MySkodaGeneralHelper(dataReader);
         generalHelper.loginNoReset(carModel);
         generalHelper.selectFromCarMenu("Nabíjení baterie");
 
@@ -24,7 +24,7 @@ public class MySkodaChargeLimit extends MethodHelperMobile {
 
         dialogPause();
         waitForClickable("chargingLimitMenuLabel");
-        waitForElementExist("chargingLimit80");*/
+        waitForElementExist("chargingLimit80");
 
         return true;
     }
