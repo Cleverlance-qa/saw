@@ -3,6 +3,7 @@ package confighelpers;
 import corehelpers.DriversSetUp;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriverException;
@@ -22,6 +23,7 @@ import org.openqa.selenium.winium.WiniumDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -210,59 +212,37 @@ public class DriversConfig extends DriversSetUp {
         caps = new DesiredCapabilities();
         final ChromeOptions options = new ChromeOptions();
         switch (device) {
-            case "androidExample":
+            case "MySkodaBS":
+                final String USERNAME = "";
+                final String AUTOMATE_KEY = "";
+                appiumURL = "https://hub-cloud.browserstack.com/wd/hub";
+
+                caps.setCapability("platformName", "android");
+                caps.setCapability("platformVersion", "9.0");
+                caps.setCapability("deviceName", "Google Pixel 3");
+                caps.setCapability("app", "bs://550d3d041abbf7cbb80370c13b60e97715bc8cc4");
+                caps.setCapability("appPackage","cz.skodaauto.connect");
+                caps.setCapability("browserstack.user", USERNAME);
+                caps.setCapability("browserstack.key", AUTOMATE_KEY);
+                options.merge(caps);
+                break;
+
+            case "S20_MySkoda":
                 caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
-                caps.setCapability(MobileCapabilityType.DEVICE_NAME, "ZY224GM9FK");
-                //caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
-                caps.setCapability(MobileCapabilityType.VERSION, "9");
+                caps.setCapability(MobileCapabilityType.DEVICE_NAME, "R5CN400JP8B");
+                caps.setCapability(MobileCapabilityType.VERSION, "11");
                 caps.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
-//                caps.setCapability("appPackage", "eu.inmite.prj.kb.mobilbank.beta");
-//                caps.setCapability("appActivity", "cz.kb.mba.individual.IndividualMainActivity");
-                caps.setCapability("appPackage", "com.google.android.apps.maps");
-                caps.setCapability("appActivity", "com.google.android.maps.MapsActivity");
-                caps.setCapability(MobileCapabilityType.NO_RESET, "true");
+                caps.setCapability("appPackage","cz.skodaauto.connect");
+                caps.setCapability("appActivity", "cz.eman.oneconnect.wrapper.system.MainActivity");
+                caps.setCapability("locale", "CZ");
+                caps.setCapability("language", "cs");
+                caps.setCapability("noReset", true);
                 options.addArguments("no-first-run");
                 options.addArguments("ignore-certificate-errors");
                 options.addArguments("disable-translate");
                 caps.setPlatform(Platform.ANDROID);
                 options.merge(caps);
                 break;
-
-            case "abc":
-                caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
-                caps.setCapability(MobileCapabilityType.DEVICE_NAME, "ZY224GM9FK");
-                //caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
-                caps.setCapability(MobileCapabilityType.VERSION, "9");
-                caps.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
-//                caps.setCapability("appPackage", "eu.inmite.prj.kb.mobilbank.beta");
-//                caps.setCapability("appActivity", "cz.kb.mba.individual.IndividualMainActivity");
-                caps.setCapability("appPackage", "com.google.android.apps.maps");
-                caps.setCapability("appActivity", "com.google.android.maps.MapsActivity");
-////                caps.setCapability(MobileCapabilityType.NO_RESET, "true");
-                options.addArguments("no-first-run");
-                options.addArguments("ignore-certificate-errors");
-                options.addArguments("disable-translate");
-                caps.setPlatform(Platform.ANDROID);
-                options.merge(caps);
-                break;
-
-            case "iPhoneExample":
-                caps = DesiredCapabilities.iphone();
-                caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "IOS");
-                caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Digital Centre of - iPhone");
-                caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
-                caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
-                caps.setCapability(MobileCapabilityType.UDID, "ddf1731ce88a28d08b14a08b1f495a4d2be8b85a");
-                options.addArguments("no-first-run");
-                options.addArguments("ignore-certificate-errors");
-                options.addArguments("disable-translate");
-                caps.setPlatform(Platform.ANY);
-                try {
-                    appDriver = new AppiumDriver(new URL(appiumURL), caps);
-                } catch (MalformedURLException e) {
-                    LOGGER.log(Level.SEVERE,ERROR_APPIUM_SERVER, e);
-                }
-                return appDriver;
             default:
                 LOGGER.log(Level.SEVERE,"Used device is not defined in DriversConfig!");
         }

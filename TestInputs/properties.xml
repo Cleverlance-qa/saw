@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <comment>Properties for SELEF project</comment>
+    <comment>Properties for SAW project</comment>
     <entry key="baseURL">https://google.com</entry>
     <entry key="appiumURL">http://127.0.0.1:4723/wd/hub</entry>
     <entry key="gridURL">http://192.168.56.1:4444/wd/hub</entry>

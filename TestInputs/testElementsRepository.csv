@@ -1,20 +1,47 @@
 elementName;id;name;xpath
---------------------------------------SAMPLE----------------------------------------------------
-googleSearchField;;q;
-googleSearchButton;;btnK
-googleCleverlance;;;//span[text()='Cleverlance']
-cleverlanceProductMenu;product-menu-icon;;
-cleverlanceProductMenuTaaS;;;//a[contains(text(),'Testování jako služba')]
-cleverlanceTaasContact;;;//span[contains(text(),'Kontaktujte nás')]/../..
-cleverlanceSocialMedias;;;//div[@id='social-media']/a
 
+--------------------------------------SKODA SAMPLE----------------------------------------------------
+wikiSearchField;org.wikipedia.alpha:id/search_container;;
+wikiSearchFieldEdit;org.wikipedia.alpha:id/search_src_text;;
+wikiResultSomething;;;//android.widget.TextView[@text='Something']/..
+wikiResultHistorySomething;;;//android.widget.TextView[@text='Something']
+wikiHistory;History;;
+wikiExplore;Explore;;
 
------------------------------------------------WINIUM SAMPLE------------------------------------------------------------------
-calc4;;Čtyři;
-
---------------------------------------MOBILE SAMPLE----------------------------------------------------
-googleMenuSwipe;com.google.android.apps.maps:id/scrollable_card_stream_containe;;
-googleMenu_;com.google.android.apps.maps:id/search_omnibox_menu_button;;
-googleMenu;Menu;;
-googleMenuTraffic;;;//android.widget.TextView[@text='Traffic']
-googleMenuMessages;;;//android.widget.TextView[@text='Messages']
+--------------------------------------MYSKODA GENERAL----------------------------------------------------
+nextButton;;;//android.widget.Button[@resource-id='next-btn']
+carMenuByLabel;;;//android.widget.TextView[@text='%s'];true
+continueButton;;;//android.widget.Button[@resource-id='continue-btn']
+cutoutView;;;//android.view.View[@resource-id='cz.skodaauto.connect:id/cutoutView']
+rootWarningContinueButton;;;//android.widget.Button[@resource-id='cz.skodaauto.connect:id/dialog_btn_positive']
+garageButton;;;//android.widget.ImageView[@resource-id='cz.skodaauto.connect:id/garage']
+garageScreenLabel;;;//android.widget.TextView[@text='Garáž']
+garageCarSelectByLabel;;;//android.widget.TextView[contains(@text,'%s')];true
+--------------------------------------MYSKODA LOGIN----------------------------------------------------
+loginEmail;;;//android.widget.EditText[@resource-id='input_email']
+loginPassword;;;//android.widget.EditText[@resource-id='password']
+welcomeFirstPageLogo;;;//android.widget.ImageView[@resource-id='cz.skodaauto.connect:id/icon']
+welcomeCloseButton;;;//android.widget.Button[@resource-id='cz.skodaauto.connect:id/proceed']
+--------------------------------------MYSKODA APP----------------------------------------------------
+menuGasItemLogo;;;//android.widget.FrameLayout[@resource-id='cz.skodaauto.connect:id/shortcut_1']
+gasStatusTitle;;;//android.widget.TextView[@resource-id='cz.skodaauto.connect:id/toolbarTitle']
+--------------------------------------MYSKODA CLIMATE CONTROL----------------------------------------------------
+climateControllBetaText;;;//android.widget.TextView[@text='Ovládání teploty (BETA)']
+climateControllStartButton;;;//android.widget.Button[@resource-id='cz.skodaauto.connect:id/acStartMe2View']
+climateControllStopButton;;;//android.widget.Button[@resource-id='cz.skodaauto.connect:id/acStopMe2View']
+climateControllStartProgressLabel;;;//android.widget.TextView[@text='Zapínáme klimatizaci...']
+climateControlWelcomeInfoPanel;;;//android.widget.HorizontalScrollView[@resource-id='cz.skodaauto.connect:id/tab_layout']
+--------------------------------------MYSKODA CHARGING----------------------------------------------------
+chargingLimitMenuLabel;;;//android.widget.TextView[@text='Limit nabíjení']
+chargingLimitPageTitle;;;//android.widget.TextView[@text='Nastavit limit nabíjení']
+chargingLimitPlusButton;;;//android.widget.ImageButton[@resource-id='cz.skodaauto.connect:id/plus']
+chargingLimitMinusButton;;;//android.widget.ImageButton[@resource-id='cz.skodaauto.connect:id/minus']
+chargingLimit80;;;//android.widget.TextView[@text='80 %']
+chargingLimit100;;;//android.widget.TextView[@text='100 %']
+chargingLimitSaveButton;;;//android.widget.Button[@resource-id='cz.skodaauto.connect:id/done']
+--------------------------------------MYSKODA PROHLIDKA----------------------------------------------------
+prohlidkaMenuButton;;;//android.widget.FrameLayout[@content-desc='Prohlídka']
+prohlidkaNoProblemLabel;;;//android.widget.TextView[@text='Nenašli jsme závadu.']
+prohlidkaDownloadButton;;;//android.widget.Button[@resource-id='cz.skodaauto.connect:id/btn_download']
+prohlidkaReportTest;;;//android.view.ViewGroup[contains(@content-desc,'%s')];true
+prohlidkaMilesCounter;;;//android.widget.TextView[@resource-id='cz.skodaauto.connect:id/txt_mileage']
