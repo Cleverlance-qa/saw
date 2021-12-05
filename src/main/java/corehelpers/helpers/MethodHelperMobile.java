@@ -9,6 +9,8 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.apache.commons.io.FileUtils;
+import org.apache.http.annotation.Obsolete;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.sikuli.script.FindFailed;
@@ -238,6 +240,7 @@ public class MethodHelperMobile extends MethodHelper {
      * @param sikuliElementName - element name from Sikuli repository
      * @return - true if exists
      */
+    @Obsolete
     public boolean assertGraphicElementExist(String sikuliElementName) {
         final File screenFile = getMobileDriver().getScreenshotAs(OutputType.FILE);
         Finder finder = new GraphicHelper().prepareFinder(screenFile, sikuliElementName);
@@ -357,15 +360,12 @@ public class MethodHelperMobile extends MethodHelper {
 
     private void swipeScreen(MySkodaGeneralHelper.Direction dir) {
         System.out.println("swipeScreen(): dir: '" + dir + "'"); // always log your actions
-
         // Animation default time:
         //  - Android: 300 ms
         //  - iOS: 200 ms
         // final value depends on your app and could be greater
         final int ANIMATION_TIME = 200; // ms
-
         final int PRESS_TIME = 200; // ms
-
         int edgeBorder = 10; // better avoid edges
         PointOption pointOptionStart, pointOptionEnd;
 
@@ -376,16 +376,16 @@ public class MethodHelperMobile extends MethodHelper {
         pointOptionStart = PointOption.point(dims.width / 2, dims.height / 2);
 
         switch (dir) {
-            case DOWN: // center of footer
+            case DOWN:
                 pointOptionEnd = PointOption.point(dims.width / 2, dims.height - edgeBorder);
                 break;
-            case UP: // center of header
+            case UP:
                 pointOptionEnd = PointOption.point(dims.width / 2, edgeBorder);
                 break;
-            case LEFT: // center of left side
+            case LEFT:
                 pointOptionEnd = PointOption.point(edgeBorder, dims.height / 2);
                 break;
-            case RIGHT: // center of right side
+            case RIGHT:
                 pointOptionEnd = PointOption.point(dims.width - edgeBorder, dims.height / 2);
                 break;
             default:
@@ -401,15 +401,36 @@ public class MethodHelperMobile extends MethodHelper {
                     .moveTo(pointOptionEnd)
                     .release().perform();
         } catch (Exception e) {
-            System.err.println("swipeScreen(): TouchAction FAILED\n" + e.getMessage());
+            LOGGER.log(Level.SEVERE, "swipeScreen(): TouchAction FAILED\n" + e.getMessage());
             return;
         }
 
-        // always allow swipe action to complete
         try {
             Thread.sleep(ANIMATION_TIME);
         } catch (InterruptedException e) {
             // ignore
+        }
+    }
+
+    /**
+     * Check if given image exists on current screen.
+     * @param image - picture name from TestInputs/visual folder withnout .png
+     * @return - true if image exists on current screen
+     */
+    public boolean checkImageExistOnScreen(String image) {
+        final GraphicHelper visual = new GraphicHelper(dataReader);
+        return visual.checkMobileImageContains(image, getMobileDriver().getScreenshotAs(OutputType.FILE));
+    }
+
+    /**
+     * Check if given image exists on current screen.
+     * Throws fail if match return false.
+     * @param image - picture name from TestInputs/visual folder withnout .png
+     */
+    public void assertImageExistOnScreen(String image) {
+        final GraphicHelper visual = new GraphicHelper(dataReader);
+        if(! visual.checkMobileImageContains(image, getMobileDriver().getScreenshotAs(OutputType.FILE))) {
+            Assert.fail();
         }
     }
 

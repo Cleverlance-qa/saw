@@ -19,17 +19,17 @@ public class MySkodaHealthCheck extends MethodHelperMobile {
         waitForElementExist("prohlidkaNoProblemLabel");
 
         String miles = getText("prohlidkaMilesCounter");
-        miles = miles.replaceAll("\\D+","");
-        assertGraphicElementExist("svetla");
-        assertGraphicElementExist("motor");
-        assertGraphicElementExist("pneumatiky");
-        assertGraphicElementExist("brzdy");
+        miles = miles.replaceAll("\\D+","");  //odstrani z hodnoty vsechny mezery
+        assertImageExistOnScreen("svetla");
+        assertImageExistOnScreen("motor");
+        assertImageExistOnScreen("pneumatiky");
+        assertImageExistOnScreen("brzdy");
         swipeUp();
         dialogPause();
-        assertGraphicElementExist("komfort");
-        assertGraphicElementExist("asistence");
-        assertGraphicElementExist("ostatni");
-        assertGraphicElementExist("nezarazeno");
+        assertImageExistOnScreen("komfort");
+        assertImageExistOnScreen("asistence");
+        assertImageExistOnScreen("ostatni");
+        assertImageExistOnScreen("nezarazeno");
         clickOnElement("prohlidkaDownloadButton");
         setElementParameter(miles);
         waitForElementExist("prohlidkaReportTest");

@@ -134,7 +134,6 @@ public class ReportGrafana {
         }
 
         final String grafanaString = properties.getProperty("measurement") + "," +
-                "testRunId=" + System.getProperty("testRunId") + "," +
                 "app=" + properties.getProperty("app") + "," +
                 "environment=" + properties.getProperty("environment") + "," +
                 "test_name=" + testName + "," +
@@ -142,7 +141,8 @@ public class ReportGrafana {
                 "browser=" + testBrowser +
                 customTagProperties +
                 " " +
-                "result=\"" + testResult +"\"" +
+                "result=\"" + testResult +"\"" + "," +
+                "testRunId=\"" + System.getProperty("testRunId") +"\"" +
                 customProperties;
         LOGGER.log(Level.INFO, "Grafana string: " + grafanaString);
         return grafanaString;

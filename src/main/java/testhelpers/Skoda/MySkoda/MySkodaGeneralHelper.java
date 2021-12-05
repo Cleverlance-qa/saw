@@ -26,13 +26,18 @@ public class MySkodaGeneralHelper extends MethodHelperMobile {
 
     public void loginNoReset(String carModel) {
         waitForClickable("garageButton");
-        waitForElementExist("garageScreenLabel");
+        waitForElementExist("garageScreenLabel", 60);
         setElementParameter(carModel);
         clickOnElement("garageCarSelectByLabel");
     }
 
     public void selectFromCarMenu(String menu) {
         setElementParameter(menu);
+        waitForClickable("carMenuByLabel",60);
+    }
+
+    public void nejakaMetoda() {
+
         waitForClickable("carMenuByLabel",60);
     }
 

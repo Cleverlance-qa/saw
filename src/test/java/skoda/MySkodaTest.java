@@ -17,20 +17,20 @@ public class MySkodaTest extends TestBaseMobile {
 
     @Test
     public void heaterTest() {
-        success = new MySkodaHeater(dataReader).testRun("ENYAQ");
         testBodyName = MySkodaHeater.class.getSimpleName();
+        success = new MySkodaHeater(dataReader).testRun("ENYAQ");
     }
 
     @Test
     public void chargeLimitTest() {
-        success = new MySkodaChargeLimit(dataReader).testRun("ENYAQ");
         testBodyName = MySkodaChargeLimit.class.getSimpleName();
+        success = new MySkodaChargeLimit(dataReader).testRun("ENYAQ");
     }
 
     @Test
     public void healthCheckTest() {
-        success = new MySkodaHealthCheck(dataReader).testRun("KAROQ");
         testBodyName = MySkodaHealthCheck.class.getSimpleName();
+        success = new MySkodaHealthCheck(dataReader).testRun("KAROQ");
     }
 
     @After

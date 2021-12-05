@@ -3,8 +3,8 @@
 <properties>
     <comment>Properties for grafana exporting</comment>
     <entry key="enableGrafanaReport">true</entry>
-    <entry key="telegrafURL">http://164.90.208.199/telegraf</entry>
-    <entry key="measurement">myskodademo_v01</entry>
+    <entry key="telegrafURL">http://165.22.88.150:8080/telegraf</entry>
+    <entry key="measurement">myskodademodva</entry>
     <entry key="app">MYSKODA</entry>
     <entry key="environment">test</entry>
 </properties>

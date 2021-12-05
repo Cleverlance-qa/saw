@@ -45,3 +45,4 @@ prohlidkaNoProblemLabel;;;//android.widget.TextView[@text='Nenašli jsme závadu
 prohlidkaDownloadButton;;;//android.widget.Button[@resource-id='cz.skodaauto.connect:id/btn_download']
 prohlidkaReportTest;;;//android.view.ViewGroup[contains(@content-desc,'%s')];true
 prohlidkaMilesCounter;;;//android.widget.TextView[@resource-id='cz.skodaauto.connect:id/txt_mileage']
+

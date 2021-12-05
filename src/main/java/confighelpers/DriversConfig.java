@@ -229,7 +229,7 @@ public class DriversConfig extends DriversSetUp {
 
             case "S20_MySkoda":
                 caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
-                caps.setCapability(MobileCapabilityType.DEVICE_NAME, "R5CN400JP8B");
+                caps.setCapability(MobileCapabilityType.DEVICE_NAME, "ZY224GM9FK");
                 caps.setCapability(MobileCapabilityType.VERSION, "11");
                 caps.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
                 caps.setCapability("appPackage","cz.skodaauto.connect");
@@ -243,6 +243,7 @@ public class DriversConfig extends DriversSetUp {
                 caps.setPlatform(Platform.ANDROID);
                 options.merge(caps);
                 break;
+
             default:
                 LOGGER.log(Level.SEVERE,"Used device is not defined in DriversConfig!");
         }

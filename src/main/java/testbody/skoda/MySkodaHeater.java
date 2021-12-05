@@ -3,6 +3,7 @@ package testbody.skoda;
 import corehelpers.DataReader;
 import corehelpers.helpers.MethodHelperMobile;
 import corehelpers.injections.TimeWatch;
+import org.junit.Assert;
 import testhelpers.Skoda.MySkoda.MySkodaGeneralHelper;
 
 import java.util.concurrent.TimeUnit;
@@ -15,27 +16,26 @@ public class MySkodaHeater extends MethodHelperMobile {
 
     public boolean testRun(String carModel) {
         MySkodaGeneralHelper generalHelper = new MySkodaGeneralHelper(dataReader);
-       // generalHelper.login("Gqs2821@skoq.cz", "Connectedcar1");
         generalHelper.loginNoReset(carModel);
         generalHelper.selectFromCarMenu("Ovládání teploty (BETA)");
 
         waitForElementExist("climateControllStartButton");
-        assertGraphicElementExist("klima_off");
+        assertImageExistOnScreen("klima_off");
         TimeWatch watch = new TimeWatch();
         watch.start();
         waitForClickable("climateControllStartButton");
         waitForElementExist("climateControllStartProgressLabel").waitForElementNotExist("climateControllStartProgressLabel",180);
         long passedTimeInSeconds = watch.time(TimeUnit.SECONDS);
         logMessageToConsole("Climate control starts in " + passedTimeInSeconds + " seconds");
-        assertGraphicElementExist("klima_on");
+        takeScreenshot("dbug");
+        assertImageExistOnScreen("klima_on");
 
         watch.start();
         waitForClickable("climateControllStopButton");
         waitForElementExist("climateControllStartButton");
         passedTimeInSeconds = watch.time(TimeUnit.SECONDS);
         logMessageToConsole("Climate control stops in " + passedTimeInSeconds + " seconds");
-        assertGraphicElementExist("klima_off");
-
+        assertImageExistOnScreen("klima_off");
         return true;
     }
 
