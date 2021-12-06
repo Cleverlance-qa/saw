@@ -18,7 +18,7 @@ public class MySkodaHeater extends MethodHelperMobile {
         MySkodaGeneralHelper generalHelper = new MySkodaGeneralHelper(dataReader);
         generalHelper.loginNoReset(carModel);
         generalHelper.selectFromCarMenu("Ovládání teploty (BETA)");
-
+        dialogPause();
         waitForElementExist("climateControllStartButton");
         assertImageExistOnScreen("klima_off");
         TimeWatch watch = new TimeWatch();
